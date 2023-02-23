@@ -25,7 +25,9 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
+      - uses: actions/setup-telegraf@v3
       - run: npm install
+      - run: npm install telegraf@3.32
 
       # Runs a single command using the runners shell
       - name: Node.js code builder
