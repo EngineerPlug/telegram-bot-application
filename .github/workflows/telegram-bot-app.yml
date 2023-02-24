@@ -26,7 +26,6 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
       - run: npm install
-      - run: npm install telegraf
 
       # Runs a single command using the runners shell
       - name: Node.js code builder
