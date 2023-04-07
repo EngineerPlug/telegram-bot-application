@@ -1,7 +1,14 @@
 const Telegraf = require('telegraf');
 const secret = require('dotenv');
+const time = require('node-cron');
 const config = secret.config();
 const bot = new Telegraf(process.env.TOKEN);
+
+//These are measuring time for sheduled messages
+time.schedule('* 30 8 * * *', () => {
+    bot.telegram.sendMessage(chat_id, 'Good Morning');
+});
+
 
 //server test
 console.log('Your server is running on port 3000.');
@@ -181,7 +188,8 @@ inline_keyboard: [
         })
     });
 
-    /*bot.action('skin', ctx => {
+    /*
+    bot.action('skin', ctx => {
         bot.answerCbQuery();
         bot.reply('Learn how you can heal your skin by clicking: https://huegirlszz.com');
     });
@@ -192,5 +200,6 @@ inline_keyboard: [
     bot.action('website', ctx => {
         bot.answerCbQuery();
         bot.reply('If you are ready build your fully custom shopify or wordpress website click https://jallohwebconstruction.com and go to our products to find what you need or fill out the form at the bottom!')
-    });*/
+    });
+    */
 bot.launch();
